@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "magic-sdk": "^4.1.1",
+    "magic-sdk": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
