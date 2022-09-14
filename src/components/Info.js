@@ -21,7 +21,7 @@ export default function Info({ user, magic, handleChangeNetwork, balance }) {
           <h1>Network</h1>
           <div className="info">
             <select name="network" onChange={(e) => handleChangeNetwork(e)}>
-              <option value="ethereum">Ethereum (Ropsten Testnet)</option>
+              <option value="ethereum">Ethereum (Goerli Testnet)</option>
               <option value="matic">Matic (Mumbai Testnet)</option>
             </select>
           </div>
@@ -29,7 +29,7 @@ export default function Info({ user, magic, handleChangeNetwork, balance }) {
           <div className="info">{user.publicAddress}</div>
           <h1>Balance</h1>
           <div className="info">{balance.toString().substring(0, 6)} {magic.network === 'matic' ? 'MATIC' : 'ETH'}</div>
-          <div><a href="https://faucet.ropsten.be/" target="_blank">Get Test ETH</a></div>
+          <div><a href="https://goerlifaucet.com/" target="_blank">Get Test ETH</a></div>
           <div><a href="https://faucet.matic.network/" target="_blank">Get Test MATIC</a></div>
         </div>
     </>

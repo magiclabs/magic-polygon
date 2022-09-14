@@ -43,7 +43,7 @@ export default function ContractCall({ network, user, fetchBalance, message, con
           {
           txnHash &&
             <div className="info">
-              <a href={network === "ethereum" ? `https://ropsten.etherscan.io/tx/${txnHash}` : `https://explorer-mumbai.maticvigil.com/tx/${txnHash}`} target="_blank">
+              <a href={network === "ethereum" ? `https://goerli.etherscan.io/tx/${txnHash}` : `https://explorer-mumbai.maticvigil.com/tx/${txnHash}`} target="_blank">
                 View Transaction
               </a> ↗️
             </div>

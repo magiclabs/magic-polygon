@@ -13,9 +13,9 @@ export default function Home() {
   const [userMetadata, setUserMetadata] = useState();
   const [balance, setBalance] = useState('...');
   const network = magic.network === "ethereum" ? 'ethereum' : 'matic';
-  const ropstenContractAddress = '0x3EA3913A352cDd49889c7b0dEc8Dd9491d063453';
+  const goerliContractAddress = '0x3EA3913A352cDd49889c7b0dEc8Dd9491d063453';
   const maticContractAddress = '0xfD827cC6d5b959287D7e1680dBA587ffE5dFcbB4';
-  const contract = new web3.eth.Contract(abi, network === "ethereum" ? ropstenContractAddress : maticContractAddress);
+  const contract = new web3.eth.Contract(abi, network === "ethereum" ? goerliContractAddress : maticContractAddress);
   const [message, setMessage] = useState('...');
   const history = useHistory();
 

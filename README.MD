@@ -157,9 +157,9 @@ Separate smart contracts will need to be deployed on each Ethereum and Polygon f
 
 ```js
 const network = magic.network === "ethereum" ? 'ethereum' : 'matic';
-const ropstenContractAddress = '0x8cb46E4bFc14Ce010dFbE5Ecb61BA64d798D3A67';
+const goerliContractAddress = '0x8cb46E4bFc14Ce010dFbE5Ecb61BA64d798D3A67';
 const maticContractAddress = '0x9ebE0B009146643bb3560375A4562D8d89E135e9';
-const contract = new web3.eth.Contract(abi, network === "ethereum" ? ropstenContractAddress : maticContractAddress);
+const contract = new web3.eth.Contract(abi, network === "ethereum" ? goerliContractAddress : maticContractAddress);
 
 // Grabbing `message` variable value stored in the smart contract
 const fetchContractMessage = () => contract.methods.message().call().then(setMessage)
