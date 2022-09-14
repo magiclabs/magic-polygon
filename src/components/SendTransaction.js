@@ -46,7 +46,7 @@ export default function SendTransaction({ web3, network, publicAddress, fetchBal
           {
           txnHash &&
             <div className="info">
-              <a href={network === "ethereum" ? `https://ropsten.etherscan.io/tx/${txnHash}` : `https://explorer-mumbai.maticvigil.com/tx/${txnHash}`} target="_blank">
+              <a href={network === "ethereum" ? `https://goerli.etherscan.io/tx/${txnHash}` : `https://explorer-mumbai.maticvigil.com/tx/${txnHash}`} target="_blank">
                 View Transaction
               </a> ↗️
             </div>

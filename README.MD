@@ -36,26 +36,43 @@ You’ll use the same API key for both `Magic` instances so that the user’s pu
 import { Magic } from 'magic-sdk';
 import Web3 from 'web3';
 
-/** 
- * NOTE: when connecting to a testnet, TEST API keys must be used from the Magic dashboard (live API keys for eth mainnet)
+/**
+ * Configure Polygon Connection
  */
-
-const customNodeOptions = {
+const polygonNodeOptions = {
   rpcUrl: 'https://rpc-mumbai.matic.today',
-  chainId: 80001
-}
+  chainId: 80001,
+};
 
-// Setting network to Matic
-export const magicMatic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY, { network: customNodeOptions });
-magicMatic.network = "matic"
+export const magicMatic = new Magic(
+  process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
+  { 
+    network: polygonNodeOptions, 
+  },
+);
+magicMatic.network = 'matic';
 
 export const maticWeb3 = new Web3(magicMatic.rpcProvider);
 
-// Setting network to Ethereum (Ropsten Testnet)
-export const magicEthereum = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY, { network: 'ropsten' });
-magicEthereum.network = "ethereum"
+/**
+ * Configure Goerli Connection
+ */
+
+const goerliNodeOptions = {
+  rpcUrl: `https://eth-goerli.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_API_KEY}`,
+  chainId: 5,
+};
+
+export const magicEthereum = new Magic(
+  process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
+  { 
+    network: goerliNodeOptions, 
+  },
+);
+magicEthereum.network = 'ethereum';
 
 export const ethWeb3 = new Web3(magicEthereum.rpcProvider);
+
 ```
 
 ## Switching Between Networks
@@ -74,7 +91,7 @@ import { magicEthereum, magicMatic, ethWeb3, maticWeb3 } from "../magic";
   return (
     <div className="info">
       <select name="network" onChange={(e) => handleChangeNetwork(e)}>
-        <option value="ethereum">Ethereum (Ropsten Testnet)</option>
+        <option value="ethereum">Ethereum (Goerli Testnet)</option>
         <option value="matic">Matic (Mumbai Testnet)</option>
       </select>
     </div>
@@ -140,9 +157,9 @@ Separate smart contracts will need to be deployed on each Ethereum and Polygon f
 
 ```js
 const network = magic.network === "ethereum" ? 'ethereum' : 'matic';
-const ropstenContractAddress = '0x8cb46E4bFc14Ce010dFbE5Ecb61BA64d798D3A67';
+const goerliContractAddress = '0x8cb46E4bFc14Ce010dFbE5Ecb61BA64d798D3A67';
 const maticContractAddress = '0x9ebE0B009146643bb3560375A4562D8d89E135e9';
-const contract = new web3.eth.Contract(abi, network === "ethereum" ? ropstenContractAddress : maticContractAddress);
+const contract = new web3.eth.Contract(abi, network === "ethereum" ? goerliContractAddress : maticContractAddress);
 
 // Grabbing `message` variable value stored in the smart contract
 const fetchContractMessage = () => contract.methods.message().call().then(setMessage)

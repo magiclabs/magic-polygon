@@ -5,30 +5,34 @@ import Web3 from 'web3';
  * Configure Polygon Connection
  */
 const polygonNodeOptions = {
-  rpcUrl: 'https://rpc-mumbai.maticvigil.com/',
+  rpcUrl: 'https://rpc-mumbai.matic.today',
   chainId: 80001,
 };
 
 export const magicMatic = new Magic(
   process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
-  { network: polygonNodeOptions }
+  { 
+    network: polygonNodeOptions, 
+  },
 );
 magicMatic.network = 'matic';
 
 export const maticWeb3 = new Web3(magicMatic.rpcProvider);
 
 /**
- * Configure Ropsten Connection
+ * Configure Goerli Connection
  */
 
-const ropstenNodeOptions = {
-  rpcUrl: process.env.REACT_APP_ROPSTEN_RPC,
-  chainId: 3,
+const goerliNodeOptions = {
+  rpcUrl: `https://eth-goerli.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_API_KEY}`,
+  chainId: 5,
 };
 
 export const magicEthereum = new Magic(
   process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
-  { network: ropstenNodeOptions }
+  { 
+    network: goerliNodeOptions, 
+  },
 );
 magicEthereum.network = 'ethereum';
 
