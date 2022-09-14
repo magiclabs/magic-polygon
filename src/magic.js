@@ -5,7 +5,7 @@ import Web3 from 'web3';
  * Configure Polygon Connection
  */
 const polygonNodeOptions = {
-  rpcUrl: 'https://rpc-mumbai.maticvigil.com/',
+  rpcUrl: 'https://rpc-mumbai.matic.today',
   chainId: 80001,
 };
 
