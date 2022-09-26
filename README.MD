@@ -54,19 +54,11 @@ magicMatic.network = 'matic';
 
 export const maticWeb3 = new Web3(magicMatic.rpcProvider);
 
-/**
- * Configure Goerli Connection
- */
-
-const goerliNodeOptions = {
-  rpcUrl: `https://eth-goerli.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_API_KEY}`,
-  chainId: 5,
-};
-
+// Connect to Ethereum (Goerli Testnet)
 export const magicEthereum = new Magic(
   process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
   { 
-    network: goerliNodeOptions, 
+    network: 'goerli', 
   },
 );
 magicEthereum.network = 'ethereum';
